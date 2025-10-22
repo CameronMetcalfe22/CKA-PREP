@@ -8,7 +8,7 @@
 # or
 
 # Calico (v3.28.2) using the manifest tigera-operator.yaml
-# (https://raw.githubusercontent.com/projectcalico/calico/v3.28.2/manifest/tigera-operator.yaml)
+# (https://raw.githubusercontent.com/projectcalico/calico/v3.28.2/manifests/tigera-operator.yaml)
 
 # The CNI you choose must
 # 1. Let pods communicate with each other
