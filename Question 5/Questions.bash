@@ -6,3 +6,6 @@
 # 2. Patch the StorageClass to make it the default StorageClass
 # 3. Ensure local-storage is the only default class
 # Do not modify any existing Deployments or PersistentVolumeClaims
+
+# Video link
+https://youtu.be/WmbIrlbqjPw?si=bYSf9dDtb4hIfKG4

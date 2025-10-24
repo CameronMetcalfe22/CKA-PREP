@@ -9,3 +9,6 @@
 # 2. Create a HTTPRoute resource named web-route with hostname gateway.web.k8s.local that maintains the
 # existing routing rules from the current Ingress resource named web.
 # Note: A GatewayClass named nginx-class is already installed in the cluster
+
+#Video link
+https://youtu.be/W-Rt_U8any4?si=KD_6oVewmhPgu1NZ

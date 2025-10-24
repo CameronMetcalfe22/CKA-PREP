@@ -1,8 +1,11 @@
-# 1. Create namespaces
-kubectl create namespace frontend
-kubectl create namespace backend
+#!/bin/bash
+set -e
 
-# 2. Deploy backend app
+echo "🔹 Creating namespaces..."
+kubectl create namespace frontend --dry-run=client -o yaml | kubectl apply -f -
+kubectl create namespace backend --dry-run=client -o yaml | kubectl apply -f -
+
+echo "🔹 Deploying backend app..."
 kubectl apply -n backend -f - <<EOF
 apiVersion: apps/v1
 kind: Deployment
@@ -26,10 +29,10 @@ spec:
         - containerPort: 80
 EOF
 
-# Expose backend as a ClusterIP Service
+echo "🔹 Exposing backend as ClusterIP service..."
 kubectl expose deployment backend-deployment -n backend --port=80 --target-port=80 --name=backend-service
 
-# 3. Deploy frontend app
+echo "🔹 Deploying frontend app..."
 kubectl apply -n frontend -f - <<EOF
 apiVersion: apps/v1
 kind: Deployment
@@ -52,17 +55,15 @@ spec:
         command: ["sleep", "3600"]
 EOF
 
-# Create the directory for the Yaml files
+echo "🔹 Creating NetworkPolicy files..."
 mkdir -p /root/network-policies
 cd /root/network-policies
-
-# Create the yaml files
 
 cat <<EOF > network-policy-1.yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: policy-a
+  name: policy-x
   namespace: backend
 spec:
   podSelector: {}
@@ -76,7 +77,7 @@ cat <<EOF > network-policy-2.yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: policy-b
+  name: policy-y
   namespace: backend
 spec:
   podSelector:
@@ -100,7 +101,7 @@ cat <<EOF > network-policy-3.yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: policy-c
+  name: policy-z
   namespace: backend
 spec:
   podSelector:
@@ -121,5 +122,5 @@ spec:
   - Ingress
 EOF
 
-# Go back to root directory
-cd ..
+cd /
+echo "✅ Lab setup complete. Three network policy files created in /root/network-policies."

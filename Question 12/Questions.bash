@@ -11,3 +11,6 @@
 # Edit the MariaDb Deployment file located at ~/mariadb-deploy.yaml to use the PVC created in the previous step
 # Apply the updated Deployment file to the cluster
 # Ensure the MariaDB Deployment is running and Stable
+
+#Video Link
+https://youtu.be/0h2Dik_OTvw?si=9hU6-xzCW7AUsmEj

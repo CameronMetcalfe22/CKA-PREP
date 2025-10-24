@@ -33,7 +33,7 @@ spec:
   resources:
     requests:
       storage: 250Mi
-  storageClassName: "" # This will allow it to bind to the exisiting PV with ono SC
+  storageClassName: "" # This will allow it to bind to the existing PV with ono SC
 # Apply it
 k apply pvc.yaml
 # Check it has bound

@@ -1,8 +1,11 @@
-# 1. Create namespace
+#!/bin/bash
+set -e
+
+echo "Creating namespace: echo-sound"
 kubectl create ns echo-sound || true
 
-# 2. Deploy a simple echo server
-kubectl -n echo-sound apply -f - <<EOF
+echo "Deploying Echo Server in namespace: echo-sound"
+cat <<EOF | kubectl -n echo-sound apply -f -
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -23,3 +26,5 @@ spec:
         ports:
         - containerPort: 8080
 EOF
+
+echo "✅ Echo server deployment created successfully!"

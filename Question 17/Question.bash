@@ -10,3 +10,6 @@
 # 3. Verify everything is working using the following commands
     curl -vk --tls-max 1.2 https://ckaquestion.k8s.local # should fail
     curl -vk --tlsv1.3 https://ckaquestion.k8s.local # should work
+
+# Video Link
+https://youtu.be/-6QTAhprvTo?si=Rx81y2lHvK2Y_jBF
