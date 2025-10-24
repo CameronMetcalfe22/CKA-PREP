@@ -18,6 +18,13 @@ sudo sysctl -w net.bridge.bridge-nf-call-iptables=1
 sudo sysctl -w net.ipv6.conf.all.forwarding=1
 sudo sysctl -w net.ipv4.ip_forward=1
 sudo sysctl -w net.netfilter.nf_conntrack_max=131072
+# This isn't persistent however so would be lost on reboot, to make it persistent
+vi /etc/sysctl.d/kube.conf
+# add the config
+net.bridge.bridge-nf-call-iptables=1
+net.ipv6.conf.all.forwarding=1
+net.ipv4.ip_forward=1
+net.netfilter.nf_conntrack_max=131072
 
 # Check the output and ensure it is correct
 sudo sysctl --system

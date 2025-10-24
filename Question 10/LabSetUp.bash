@@ -1,17 +1,20 @@
-# 1. Create namespace
-kubectl create namespace autoscale
+#!/bin/bash
+set -e
 
-# 2. Deploy metrics-server (required for HPA)
+echo "🔹 Creating namespace..."
+kubectl create namespace autoscale --dry-run=client -o yaml | kubectl apply -f -
+
+echo "🔹 Deploying metrics-server (required for HPA)..."
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 
-# Patch metrics-server to allow insecure TLS (needed in Killercoda)
+echo "🔹 Patching metrics-server to allow insecure TLS (Killercoda environment)..."
 kubectl patch deployment metrics-server -n kube-system \
-  --type='json' -p='[{"op": "add", "path": "/spec/template/spec/containers/0/args/-", "value": "--kubelet-insecure-tls"}]'
+  --type='json' -p='[{"op": "add", "path": "/spec/template/spec/containers/0/args/-", "value": "--kubelet-insecure-tls"}]' || true
 
-# Wait for metrics-server to stabilize
+echo "🔹 Waiting for metrics-server rollout..."
 kubectl rollout status deployment metrics-server -n kube-system
 
-# 3. Create an Apache deployment
+echo "🔹 Creating Apache deployment..."
 kubectl apply -n autoscale -f - <<EOF
 apiVersion: apps/v1
 kind: Deployment
@@ -40,5 +43,11 @@ spec:
             cpu: 200m
 EOF
 
-# 4. Expose it internally
+echo "🔹 Exposing Apache deployment internally..."
 kubectl expose deployment apache-deployment -n autoscale --port=80 --target-port=80
+
+echo "✅ HPA lab setup complete."
+echo "   - Namespace: autoscale"
+echo "   - Deployment: apache-deployment"
+echo "   - Service: apache-deployment"
+echo "You can now create your HPA resource."

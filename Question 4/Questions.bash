@@ -9,3 +9,6 @@
 # 4. Add sufficient overhead to avoid node instability
 # Ensure both the init containers and the main containers use exactly the same resource requests and limits
 # After making the changes scale the deployment back to 3 replicas
+
+#Video link
+https://youtu.be/Hkl9XgMKxic?si=v9yI1Rz10DELN4Mf

@@ -1,4 +1,7 @@
-# 1. Create a WordPress deployment with 3 replicas and an init container
+#!/bin/bash
+# setup-wordpress.sh
+# Create a WordPress deployment with 3 replicas and an init container
+
 cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment

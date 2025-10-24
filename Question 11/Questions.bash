@@ -14,3 +14,6 @@
 # 1. Let pods communicate with each other
 # 2. Support network policy enforcement
 # 3. Install from manifest
+
+#Video Link
+https://youtu.be/SV3V5VwR2sk?si=47uiyuvMD1Vpqbm1
