@@ -1,60 +1,44 @@
-CKA-PREP
-Introduction
-This repository contains hands-on labs for preparing for the Certified Kubernetes Administrator (CKA) exam. The labs are based on the YouTube playlist by KodeKloud.
+# CKA-PREP
 
-Question numbers align with the videos in the playlist.
-Note: There are slight differences in some questions (e.g., naming, namespaces, resource definitions) to better reflect real CKA exam-style variations. Always read the Question.bash file carefully.
+## Introduction
+This repository contains hands-on labs aligned with the CKA video playlist:
+https://www.youtube.com/watch?v=-rs3AoAVyXE&list=PLkDZsCgo3Isr4NB5cmyqG7OZwYEx5XOjM&index=3
 
-Structure
-Each question has its own folder with the following files:
+- Question numbers align with the videos.
+- Some questions include slight differences (resource names, namespaces, naming, etc.) to better match exam-style wording — read each question carefully.
 
-Question.bash Full question text as it appears in the lab.
-LabSetUp.bash Executable bash script to set up the environment in Killercoda.
-SolutionNotes.bash Step-by-step notes on solving the question, aligned with exam-style practices (e.g., using patch, create, imperative commands).
+## Repository structure
+Each question has its own folder named `Question-X` (where X is the question number). A typical question folder contains:
 
-CKA-PREP/
-Question-1/
-Question.bash
-LabSetUp.bash
-SolutionNotes.bash
-Question-2/
-...
-How to Use in Killercoda
+- `Question.bash` — The question text and a link to the associated video.
+- `LabSetUp.bash` — Executable bash script to prepare the Killercoda lab environment.
+- `SolutionNotes.bash` — Supplemental notes and hints to reach the solution.
 
-Go to: https://killercoda.com/playgrounds/scenario/cka
-Clone the repository:
-git clone https://github.com/CameronMetcalfe22/CKA-PREP
-Make the setup script executable:
-chmod +x CKA-PREP/Question-1/LabSetUp.bash
-Replace 1 with your desired question number (e.g., Question-8).
-Run the setup script:
-./CKA-PREP/Question-1/LabSetUp.bash
-Replace 1 with the correct question number.
-Wait for the script to complete your lab environment will be fully configured!
+## How to use in Killercoda
+1. Open the CKA playground: https://killercoda.com/playgrounds/scenario/cka
+2. Clone this repo:
+   ```
+   git clone https://github.com/CameronMetcalfe22/CKA-PREP
+   ```
+3. Make the desired question setup executable (example for Question 1):
+   ```
+   chmod +x CKA-PREP/Question-1/LabSetUp.bash
+   ```
+   Change `Question-1` to the question number you want (e.g., `Question-8`).
+4. Run the setup script:
+   ```
+   ./CKA-PREP/Question-1/LabSetUp.bash
+   ```
+   Change the number to your chosen question (e.g., `./CKA-PREP/Question-8/LabSetUp.bash`).
+5. Allow the script to complete — once finished, the Killercoda lab will be set up and ready for you to tackle the question.
 
+## Questions
+Each `Question-X` folder contains the lab task and a link to the corresponding video. Note that the lab files may intentionally vary in names, namespaces, or resource identifiers compared to the video — this is to align more closely with typical exam phrasing. Always treat the question text in the repo as the authoritative task.
 
-Questions
-Each question includes:
+## Solution Notes
+Solution notes provide supplemental guidance and encourage exam-appropriate approaches (for example, preferring `kubectl patch` over `kubectl edit` when applicable). They are not the only way to reach a solution but can be helpful if you get stuck.
 
-A direct reference to the corresponding video in the playlist.
-Exam-style variations (namespaces, names, constraints).
-Full task description in Question.bash.
-
-Important: Always read the Question.bash file do not assume it matches the video exactly.
-
-Solution Notes
-
-Found in SolutionNotes.bash per question.
-Focus on exam-efficient methods (imperative commands, kubectl patch, create --dry-run=client, etc.).
-Designed to supplement the video, not replace it.
-Helpful if you're stuck or want to see alternative approaches.
-
-
-Recommendations
-
-Most labs can run concurrently in the same Killercoda session.
-Some labs (e.g., Question 14) break the cluster intentionally.
-Start a fresh Killercoda session for each new question to avoid conflicts.
-
-
-Good luck with your CKA preparation!
+## Recommendations
+- Most labs can run concurrently in the same Killercoda session.
+- Some labs (for example, Question 14) modify or break cluster components; for those it's recommended to start a fresh Killercoda session before running the lab.
+- Read each question carefully for small differences from the video (namespaces, resource names, etc.).
