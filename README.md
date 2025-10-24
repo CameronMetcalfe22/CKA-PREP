@@ -33,12 +33,12 @@ Each question has its own folder named `Question-X` (where X is the question num
 5. Allow the script to complete — once finished, the Killercoda lab will be set up and ready for you to tackle the question.
 
 ## Questions
-Each `Question-X` folder contains the lab task and a link to the corresponding video. Note that the lab files may intentionally vary in names, namespaces, or resource identifiers compared to the video — this is to align more closely with typical exam phrasing. Always treat the question text in the repo as the authoritative task.
+Each `Question-X` folder contains the lab task under `Question.bash` which includes a link to the corresponding youtube video. Note that the lab files may intentionally vary in names, namespaces, or resource identifiers compared to the video — this is to align more closely with typical exam phrasing. Always treat the question text in the repo as the authoritative task.
 
 ## Solution Notes
 Solution notes provide supplemental guidance and encourage exam-appropriate approaches (for example, preferring `kubectl patch` over `kubectl edit` when applicable). They are not the only way to reach a solution but can be helpful if you get stuck.
 
 ## Recommendations
 - Most labs can run concurrently in the same Killercoda session.
-- Some labs (for example, Question 14) modify or break cluster components; for those it's recommended to start a fresh Killercoda session before running the lab.
+- Some labs (for example, `Question-14`) modify or break cluster components; for those it's recommended to start a fresh Killercoda session before running the lab.
 - Read each question carefully for small differences from the video (namespaces, resource names, etc.).
