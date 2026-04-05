@@ -38,6 +38,7 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: web-route
+  namespace: web-app
 spec:
   parentRefs:
   - name: web-gateway
